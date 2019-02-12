@@ -1,0 +1,17 @@
+{% import_yaml "trickster/defaults.yaml" as defaults %}
+{% import_yaml "trickster/osmap.yaml" as osmap %}
+
+{% set os = salt['grains.filter_by'](
+  osmap,
+  merge=salt['pillar.get']('trickster:lookup', {}),
+)
+%}
+
+{% do defaults.trickster.update(os) %}
+
+{% set trickster = salt['pillar.get'](
+  'trickster',
+  default=defaults.trickster,
+  merge=True,
+)
+%}

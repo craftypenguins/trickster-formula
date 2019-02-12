@@ -1,0 +1,13 @@
+{% from "trickster/map.jinja" import trickster with context %}
+
+# THIS FILE IS MANAGED BY SALT
+[Unit]
+Description=Prometheus Trickster Service
+ 
+[Service]
+ExecStart=/opt/trickster/trickster -config {{ trickster.config_file }}
+StandardOutput=null
+ 
+[Install]
+WantedBy=multi-user.target
+Alias=prometheus-trickster.service

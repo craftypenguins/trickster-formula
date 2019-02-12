@@ -1,0 +1,7 @@
+trickster:
+  config_file: /opt/trickster/trickster.conf
+  prometheus_url: http://127.0.0.1:9090/prometheus
+  log_level: info
+  listen_port: 9089
+  metric_port: 8082
+  max_value_age_secs: 86400
